@@ -12,7 +12,17 @@
           }
         }
       },
-      "select": null
+      "select": {
+        "time": 1.484504,
+        "stats": {
+          "cpu": "6.08",
+          "memory": {
+            "used": "383.1MiB",
+            "total": "512MiB",
+            "percentage": "74.82"
+          }
+        }
+      }
     },
     "cockroach-cluster": {
       "insert": {
@@ -26,7 +36,17 @@
           }
         }
       },
-      "select": null
+      "select": {
+        "time": 1.467482,
+        "stats": {
+          "cpu": "3.93",
+          "memory": {
+            "used": "361MiB",
+            "total": "512MiB",
+            "percentage": "70.50"
+          }
+        }
+      }
     }
   },
   "100000": {
@@ -42,11 +62,41 @@
           }
         }
       },
-      "select": null
+      "select": {
+        "time": 1.06101,
+        "stats": {
+          "cpu": "1.61",
+          "memory": {
+            "used": "383.9MiB",
+            "total": "512MiB",
+            "percentage": "74.98"
+          }
+        }
+      }
     },
     "cockroach-cluster": {
-      "insert": null,
-      "select": null
+      "insert": {
+        "time": 192420.88917,
+        "stats": {
+          "cpu": "71.82",
+          "memory": {
+            "used": "412.5MiB",
+            "total": "512MiB",
+            "percentage": "80.57"
+          }
+        }
+      },
+      "select": {
+        "time": 1.191945,
+        "stats": {
+          "cpu": "2.29",
+          "memory": {
+            "used": "366MiB",
+            "total": "512MiB",
+            "percentage": "71.49"
+          }
+        }
+      }
     }
   }
 }

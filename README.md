@@ -83,7 +83,26 @@ tcc-projeto/
 - Node.js (versão 16 ou superior)
 - Navegador web moderno
 
-### Passos para Execução
+### Método Rápido (Recomendado)
+
+Use o script de inicialização que faz tudo automaticamente:
+
+```bash
+./start.sh
+```
+
+Este script irá:
+1. Iniciar todos os containers Docker
+2. Verificar se estão rodando corretamente
+3. Instalar dependências Node.js se necessário
+4. Iniciar o servidor web
+
+**Para parar o projeto:**
+```bash
+./stop.sh
+```
+
+### Método Manual
 
 1. **Clone o repositório e navegue até a pasta:**
 

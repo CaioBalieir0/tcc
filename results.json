@@ -2,96 +2,96 @@
   "10": {
     "postgresql": {
       "insert": {
-        "time": 9.194277,
+        "time": 24.377905,
         "stats": {
           "cpu": "0.01",
           "memory": {
-            "used": "26.62MiB",
+            "used": "24.44MiB",
             "total": "512MiB",
-            "percentage": "5.20"
+            "percentage": "4.77"
           }
         }
       },
       "select": {
-        "time": 3.008441,
+        "time": 3.143597,
         "stats": {
           "cpu": "0.01",
           "memory": {
-            "used": "27.02MiB",
+            "used": "24.66MiB",
             "total": "512MiB",
-            "percentage": "5.28"
+            "percentage": "4.82"
           }
         }
       }
     },
     "cockroachdb": {
       "insert": {
-        "time": 14.053567,
+        "time": 20.208965,
         "stats": {
-          "cpu": "2.18",
+          "cpu": "1.26",
           "memory": {
-            "used": "255.4MiB",
+            "used": "157.1MiB",
             "total": "512MiB",
-            "percentage": "49.88"
+            "percentage": "30.69"
           }
         }
       },
       "select": {
-        "time": 1.414422,
+        "time": 1.303986,
         "stats": {
-          "cpu": "0.82",
+          "cpu": "2.16",
           "memory": {
-            "used": "258.1MiB",
+            "used": "162.8MiB",
             "total": "512MiB",
-            "percentage": "50.42"
+            "percentage": "31.80"
           }
         }
       }
     },
     "mongodb": {
       "insert": {
-        "time": 1.768184,
+        "time": 2.097695,
         "stats": {
-          "cpu": "0.37",
+          "cpu": "0.62",
           "memory": {
-            "used": "67.25MiB",
+            "used": "68.41MiB",
             "total": "512MiB",
-            "percentage": "13.14"
+            "percentage": "13.36"
           }
         }
       },
       "select": {
-        "time": 1.219707,
+        "time": 1.385178,
         "stats": {
-          "cpu": "0.34",
+          "cpu": "0.63",
           "memory": {
-            "used": "67.41MiB",
+            "used": "68.55MiB",
             "total": "512MiB",
-            "percentage": "13.17"
+            "percentage": "13.39"
           }
         }
       }
     },
     "redis": {
       "insert": {
-        "time": 2.492673,
+        "time": 2.535756,
         "stats": {
           "cpu": "0.15",
           "memory": {
-            "used": "4.879MiB",
+            "used": "4.867MiB",
             "total": "512MiB",
             "percentage": "0.95"
           }
         }
       },
       "select": {
-        "time": 0.484688,
+        "time": 0.514936,
         "stats": {
           "cpu": "0.14",
           "memory": {
-            "used": "4.926MiB",
+            "used": "5.16MiB",
             "total": "512MiB",
-            "percentage": "0.96"
+            "percentage": "1.01"
           }
         }
       }
@@ -100,94 +100,94 @@
   "100": {
     "postgresql": {
       "insert": {
-        "time": 76.744625,
+        "time": 65.876032,
         "stats": {
-          "cpu": "0.01",
+          "cpu": "0.53",
           "memory": {
-            "used": "26.64MiB",
+            "used": "24.26MiB",
             "total": "512MiB",
-            "percentage": "5.20"
+            "percentage": "4.74"
           }
         }
       },
       "select": {
-        "time": 2.606296,
+        "time": 2.358484,
         "stats": {
-          "cpu": "0.00",
+          "cpu": "0.02",
           "memory": {
-            "used": "27.26MiB",
+            "used": "26.39MiB",
             "total": "512MiB",
-            "percentage": "5.32"
+            "percentage": "5.15"
           }
         }
       }
     },
     "cockroachdb": {
       "insert": {
-        "time": 129.129063,
+        "time": 130.942576,
         "stats": {
-          "cpu": "0.83",
+          "cpu": "1.33",
           "memory": {
-            "used": "256.5MiB",
+            "used": "161.4MiB",
             "total": "512MiB",
-            "percentage": "50.09"
+            "percentage": "31.53"
           }
         }
       },
       "select": {
-        "time": 1.115682,
+        "time": 1.146831,
         "stats": {
-          "cpu": "1.21",
+          "cpu": "58.90",
           "memory": {
-            "used": "259.2MiB",
+            "used": "187.7MiB",
             "total": "512MiB",
-            "percentage": "50.63"
+            "percentage": "36.65"
           }
         }
       }
     },
     "mongodb": {
       "insert": {
-        "time": 2.567143,
+        "time": 2.694013,
         "stats": {
-          "cpu": "0.59",
+          "cpu": "0.26",
           "memory": {
-            "used": "67.28MiB",
+            "used": "68.45MiB",
             "total": "512MiB",
-            "percentage": "13.14"
+            "percentage": "13.37"
           }
         }
       },
       "select": {
-        "time": 1.079303,
+        "time": 1.009554,
         "stats": {
-          "cpu": "0.35",
+          "cpu": "0.29",
           "memory": {
-            "used": "67.61MiB",
+            "used": "68.89MiB",
             "total": "512MiB",
-            "percentage": "13.20"
+            "percentage": "13.46"
           }
         }
       }
     },
     "redis": {
       "insert": {
-        "time": 10.35874,
+        "time": 10.758049,
         "stats": {
           "cpu": "0.14",
           "memory": {
-            "used": "4.922MiB",
+            "used": "4.91MiB",
             "total": "512MiB",
             "percentage": "0.96"
           }
         }
       },
       "select": {
-        "time": 0.447198,
+        "time": 0.40003,
         "stats": {
           "cpu": "0.15",
           "memory": {
-            "used": "4.926MiB",
+            "used": "4.914MiB",
             "total": "512MiB",
             "percentage": "0.96"
           }

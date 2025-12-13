@@ -13,18 +13,8 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}=== Parando Projeto TCC ===${NC}\n"
 
-# 1. Parar cluster de 3 nodes
-echo -e "${YELLOW}[1/2] Parando cluster de 3 nodes...${NC}"
-docker-compose -f docker-compose-comparison.yml down
-
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}✓ Cluster de 3 nodes parado${NC}\n"
-else
-    echo -e "${RED}⚠ Erro ao parar cluster (pode não estar rodando)${NC}\n"
-fi
-
-# 2. Parar containers principais
-echo -e "${YELLOW}[2/2] Parando containers principais...${NC}"
+# Parar containers principais
+echo -e "${YELLOW}Parando containers principais...${NC}"
 docker-compose down
 
 if [ $? -eq 0 ]; then
