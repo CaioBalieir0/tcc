@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # 1. RELACIONAL: PostgreSQL
+  # O padrão de mercado. Robusto, ACID, mas schema rígido.
+  postgres:
+    image: postgres:15-alpine
+    container_name: tcc_postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: tcc_bench
+    # Limita recursos para simular um servidor modesto (opcional, bom para TCC)
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  # 2. NOSQL (DOCUMENTO): MongoDB
+  # Flexível, schema-less, alta velocidade de escrita.
+  mongodb:
+    image: mongo:6.0
+    container_name: tcc_mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  # 3. IN-MEMORY: Redis
+  # Armazena na RAM. Latência extremamente baixa. Chave-Valor.
+  redis:
+    image: redis:alpine
+    container_name: tcc_redis
+    ports:
+      - '6379:6379'
+    # Redis não vem com senha por padrão para dev, mas vamos manter simples.
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  # 4. NEWSQL: CockroachDB
+  # Escalabilidade de NoSQL com a linguagem do SQL (compatível com driver do Postgres).
+  cockroach:
+    image: cockroachdb/cockroach:v23.1.10
+    container_name: tcc_cockroach
+    ports:
+      - '26257:26257' # Porta para conexão do banco (protocolo PG)
+      - '8080:8080' # Porta do Dashboard Web (ÓTIMO PARA O TCC)
+    command: start-single-node --insecure
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M # Cockroach costuma pedir um pouco mais de RAM
