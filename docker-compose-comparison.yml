@@ -1,0 +1,68 @@
+services:
+  # NEWSQL: CockroachDB Cluster (3 Nodes)
+  # Cluster de 3 nodes para comparação de escalabilidade
+  cockroach-cluster-node1:
+    image: cockroachdb/cockroach:v23.1.10
+    container_name: tcc_cockroach_cluster_node1
+    ports:
+      - '26258:26257' # Porta para conexão do primeiro node
+      - '8081:8080' # Dashboard Web do primeiro node
+    volumes:
+      - cockroach-cluster-node1-data:/cockroach/cockroach-data
+    command: start --insecure --store=node1 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=cockroach-cluster-node1,cockroach-cluster-node2,cockroach-cluster-node3 --advertise-addr=cockroach-cluster-node1
+    networks:
+      - cockroach-cluster-net
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  cockroach-cluster-node2:
+    image: cockroachdb/cockroach:v23.1.10
+    container_name: tcc_cockroach_cluster_node2
+    ports:
+      - '26259:26257' # Porta para conexão do segundo node
+      - '8082:8080' # Dashboard Web do segundo node
+    volumes:
+      - cockroach-cluster-node2-data:/cockroach/cockroach-data
+    command: start --insecure --store=node2 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=cockroach-cluster-node1,cockroach-cluster-node2,cockroach-cluster-node3 --advertise-addr=cockroach-cluster-node2
+    networks:
+      - cockroach-cluster-net
+    depends_on:
+      - cockroach-cluster-node1
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+  cockroach-cluster-node3:
+    image: cockroachdb/cockroach:v23.1.10
+    container_name: tcc_cockroach_cluster_node3
+    ports:
+      - '26260:26257' # Porta para conexão do terceiro node
+      - '8083:8080' # Dashboard Web do terceiro node
+    volumes:
+      - cockroach-cluster-node3-data:/cockroach/cockroach-data
+    command: start --insecure --store=node3 --listen-addr=0.0.0.0:26257 --http-addr=0.0.0.0:8080 --join=cockroach-cluster-node1,cockroach-cluster-node2,cockroach-cluster-node3 --advertise-addr=cockroach-cluster-node3
+    networks:
+      - cockroach-cluster-net
+    depends_on:
+      - cockroach-cluster-node1
+      - cockroach-cluster-node2
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+
+networks:
+  cockroach-cluster-net:
+    driver: bridge
+
+volumes:
+  cockroach-cluster-node1-data:
+  cockroach-cluster-node2-data:
+  cockroach-cluster-node3-data:
+

@@ -8,7 +8,8 @@ const containerMap = {
   'tcc_postgres': 'postgresql',
   'tcc_mongo': 'mongodb',
   'tcc_redis': 'redis',
-  'tcc_cockroach': 'cockroachdb'
+  'tcc_cockroach': 'cockroachdb',
+  'tcc_cockroach_cluster_node1': 'cockroach-cluster'
 };
 
 // Função para parsear uma linha de stats do Docker

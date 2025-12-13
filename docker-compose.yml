@@ -49,7 +49,7 @@ services:
           cpus: '1'
           memory: 512M
 
-  # 4. NEWSQL: CockroachDB
+  # 4. NEWSQL: CockroachDB (Single Node)
   # Escalabilidade de NoSQL com a linguagem do SQL (compatível com driver do Postgres).
   cockroach:
     image: cockroachdb/cockroach:v23.1.10

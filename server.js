@@ -3,6 +3,7 @@ const path = require('path');
 const { exec } = require('child_process');
 const { promisify } = require('util');
 const { runBenchmark } = require('./src/benchmark');
+const { runComparisonBenchmark } = require('./src/benchmarkComparison');
 
 const execAsync = promisify(exec);
 
@@ -18,6 +19,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Rota para o arquivo results.json (na raiz do projeto)
 app.get('/results.json', (req, res) => {
   res.sendFile(path.join(__dirname, 'results.json'));
+});
+
+// Rota para o arquivo comparison-results.json (na raiz do projeto)
+app.get('/comparison-results.json', (req, res) => {
+  res.sendFile(path.join(__dirname, 'comparison-results.json'));
 });
 
 // Função para obter estatísticas dos containers Docker
@@ -128,6 +134,35 @@ app.post('/api/run-benchmark', async (req, res) => {
     res.status(500).json({ 
       success: false, 
       error: error.message || 'Erro desconhecido ao iniciar benchmark' 
+    });
+  }
+});
+
+// Rota para executar o benchmark de comparação
+app.post('/api/run-comparison-benchmark', async (req, res) => {
+  try {
+    console.log('Iniciando benchmark de comparação...');
+    console.log(`[DEBUG] process.cwd(): ${process.cwd()}`);
+    console.log(`[DEBUG] __dirname: ${__dirname}`);
+    
+    // Responder imediatamente e executar benchmark em background
+    res.json({ success: true, message: 'Benchmark de comparação iniciado' });
+    
+    // Executar benchmark de comparação em background
+    runComparisonBenchmark()
+      .then(() => {
+        console.log('Benchmark de comparação concluído com sucesso!');
+      })
+      .catch((error) => {
+        console.error('Erro ao executar benchmark de comparação:', error);
+        console.error('Stack:', error.stack);
+      });
+  } catch (error) {
+    console.error('Erro ao iniciar benchmark de comparação:', error);
+    console.error('Stack:', error.stack);
+    res.status(500).json({ 
+      success: false, 
+      error: error.message || 'Erro desconhecido ao iniciar benchmark de comparação' 
     });
   }
 });

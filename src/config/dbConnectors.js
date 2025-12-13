@@ -18,6 +18,14 @@ const cockroachConfig = {
   port: 26257,
 };
 
+const cockroachClusterConfig = {
+  user: 'root',
+  host: 'localhost',
+  database: 'tcc_bench',
+  password: '',
+  port: 26258, // Porta do primeiro node do cluster
+};
+
 const mongoConfig = {
   url: `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME || 'admin'}:${process.env.MONGO_INITDB_ROOT_PASSWORD || 'password123'}@localhost:27017`,
   dbName: 'tcc_bench',
@@ -76,13 +84,27 @@ const connectRedis = async () => {
   }
 };
 
+const connectCockroachCluster = async (config = cockroachClusterConfig) => {
+  const pool = new Pool(config);
+  try {
+    await pool.query('SELECT 1');
+    console.log(`Conectado ao CockroachDB Cluster (${config.database || 'defaultdb'})`);
+    return pool;
+  } catch (error) {
+    console.error(`Erro ao conectar ao CockroachDB Cluster (${config.database || 'defaultdb'}):`, error.message);
+    throw error;
+  }
+};
+
 module.exports = {
   connectPostgres,
   connectCockroach,
+  connectCockroachCluster,
   connectMongoDB,
   connectRedis,
   pgConfig,
   cockroachConfig,
+  cockroachClusterConfig,
   mongoConfig,
   redisConfig
 };

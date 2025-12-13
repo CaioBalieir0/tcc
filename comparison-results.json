@@ -1,0 +1,52 @@
+{
+  "10000": {
+    "cockroach-single": {
+      "insert": {
+        "time": 11933.633171,
+        "stats": {
+          "cpu": "51.53",
+          "memory": {
+            "used": "265.6MiB",
+            "total": "512MiB",
+            "percentage": "51.88"
+          }
+        }
+      },
+      "select": null
+    },
+    "cockroach-cluster": {
+      "insert": {
+        "time": 22348.195147,
+        "stats": {
+          "cpu": "52.60",
+          "memory": {
+            "used": "346.4MiB",
+            "total": "512MiB",
+            "percentage": "67.66"
+          }
+        }
+      },
+      "select": null
+    }
+  },
+  "100000": {
+    "cockroach-single": {
+      "insert": {
+        "time": 122031.369129,
+        "stats": {
+          "cpu": "59.70",
+          "memory": {
+            "used": "338.9MiB",
+            "total": "512MiB",
+            "percentage": "66.19"
+          }
+        }
+      },
+      "select": null
+    },
+    "cockroach-cluster": {
+      "insert": null,
+      "select": null
+    }
+  }
+}
