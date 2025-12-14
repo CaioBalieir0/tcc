@@ -56,7 +56,7 @@ const runOperationWithStats = async (
 };
 
 const runBenchmark = async () => {
-  const dataVolumes = [10, 100];
+  const dataVolumes = [100000, 1000000];
   const results = {};
 
   // Inicializar estrutura de resultados
@@ -92,7 +92,7 @@ const runBenchmark = async () => {
   }
 
   console.log('\n--- Executando TODAS as inserções primeiro ---');
-  
+
   // PRIMEIRO: Executar TODAS as inserções para todos os volumes
   for (const volume of dataVolumes) {
     console.log(`\n--- Inserções para ${volume} registros ---`);
