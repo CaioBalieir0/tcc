@@ -92,12 +92,14 @@ Use o script de inicialização que faz tudo automaticamente:
 ```
 
 Este script irá:
+
 1. Iniciar todos os containers Docker
 2. Verificar se estão rodando corretamente
 3. Instalar dependências Node.js se necessário
 4. Iniciar o servidor web
 
 **Para parar o projeto:**
+
 ```bash
 ./stop.sh
 ```
@@ -107,15 +109,13 @@ Este script irá:
 1. **Clone o repositório e navegue até a pasta:**
 
    ```bash
-   cd tcc-projeto
+   cd tcc
    ```
-
 2. **Instale as dependências:**
 
    ```bash
    npm install
    ```
-
 3. **Inicie os bancos de dados:**
 
    ```bash
@@ -128,19 +128,17 @@ Este script irá:
    - MongoDB (porta 27017)
    - Redis (porta 6379)
    - CockroachDB (porta 26257, dashboard em 8080)
-
 4. **Execute o servidor:**
 
    ```bash
    node server.js
    ```
-
 5. **Acesse a interface web:**
 
    - Abra http://localhost:3000 no navegador
    - A interface mostrará estatísticas dos containers em tempo real
-
 6. **Execute o benchmark:**
+
    - Clique no botão "Executar Benchmark" na interface
    - Aguarde a conclusão dos testes (pode levar alguns minutos)
    - Visualize os resultados nos gráficos gerados
